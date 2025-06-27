@@ -1,0 +1,71 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"Класс изменение данных пользователя","503","Пробуем изменить данные не авторизованным пользователем. Токен не передан.
+ Ожидаем ошибку 401. Ручка: PATCH /api/auth/user","tests","Fri Jun 27 14:04:15 MSK 2025","passed","Fri Jun 27 14:04:16 MSK 2025","TestChangeUserData","test_change_user_data","",""
+"Класс изменение данных пользователя","489","Изменение данных пользователя с неверным токеном. Ожидаем 403. Ручка: PATCH /api/auth/user","tests","Fri Jun 27 14:04:15 MSK 2025","passed","Fri Jun 27 14:04:15 MSK 2025","TestChangeUserData","test_change_user_data","",""
+"Тестирование получения заказов пользователя","1455","Получение заказов авторизованного пользователя
+Ручки: POST /api/auth/login → GET /api/orders
+Ожидаем: 200, поля total и totalToday","tests","Fri Jun 27 14:04:39 MSK 2025","passed","Fri Jun 27 14:04:40 MSK 2025","TestTakeUserOrder","test_take_user_order","",""
+"Класс тестирования регистрации пользователя","508","Попытка регистрации с существующим email
+Ручка: POST /api/auth/register
+Ожидаем: 403","tests","Fri Jun 27 14:04:33 MSK 2025","passed","Fri Jun 27 14:04:33 MSK 2025","TestCreateUser","test_create_user","",""
+"Класс изменение данных пользователя","2006","Создаем, авторизуемся, изменяем email
+Ожидаем успех 200 и 202
+Ручки: POST /api/auth/register → PATCH /api/auth/user → DELETE /api/auth/user","tests","Fri Jun 27 14:04:18 MSK 2025","passed","Fri Jun 27 14:04:20 MSK 2025","TestChangeUserData","test_change_user_data","",""
+"Класс вариантов входа в систему и возможные ошибки.","516","Не авторизованный пользователь. Генерируем логин и пароль. Статус ответа 401.","tests","Fri Jun 27 14:04:36 MSK 2025","passed","Fri Jun 27 14:04:36 MSK 2025","TestLoginUser","test_login_user","",""
+"Класс тестирования регистрации пользователя","1484","Успешная регистрация и удаление пользователя
+Ручки: POST /api/auth/register → DELETE /api/auth/user
+Ожидаем: 200 (регистрация), 202 (удаление)","tests","Fri Jun 27 14:04:31 MSK 2025","passed","Fri Jun 27 14:04:33 MSK 2025","TestCreateUser","test_create_user","",""
+"Класс вариантов входа в систему и возможные ошибки.","603","Не авторизованный пользователь. Не передали логин, генерируем пароль. Статус ответа 401.","tests","Fri Jun 27 14:04:36 MSK 2025","passed","Fri Jun 27 14:04:37 MSK 2025","TestLoginUser","test_login_user","",""
+"Класс создания заказа для авторизованных пользователей","3287","Создание заказа с авторизацией
+С валидными ингредиентами
+Ручки: POST /api/auth/login → POST /api/orders
+Ожидаем: 200","tests","Fri Jun 27 14:04:26 MSK 2025","passed","Fri Jun 27 14:04:29 MSK 2025","TestLoginUserCreateOrder","test_create_order","",""
+"Класс тестирования регистрации пользователя","503","Регистрация без email
+Ручка: POST /api/auth/register
+Ожидаем: 403","tests","Fri Jun 27 14:04:33 MSK 2025","passed","Fri Jun 27 14:04:34 MSK 2025","TestCreateUser","test_create_user","",""
+"Класс изменение данных пользователя","1936","Создаем, авторизуемся, изменяем email пользователя на существующий
+Ожидаем ошибку 403 и успех 202 при удалении
+Ручки: POST /api/auth/register → PATCH /api/auth/user → DELETE /api/auth/user","tests","Fri Jun 27 14:04:22 MSK 2025","passed","Fri Jun 27 14:04:24 MSK 2025","TestChangeUserData","test_change_user_data","",""
+"Класс изменение данных пользователя","2060","Создаем, авторизуемся, изменяем имя пользователя
+Ожидаем успех 200 и 202
+Ручки: POST /api/auth/register → PATCH /api/auth/user → DELETE /api/auth/user","tests","Fri Jun 27 14:04:16 MSK 2025","passed","Fri Jun 27 14:04:18 MSK 2025","TestChangeUserData","test_change_user_data","",""
+"Класс тестирования регистрации пользователя","517","Регистрация без name
+Ручка: POST /api/auth/register
+Ожидаем: 403","tests","Fri Jun 27 14:04:34 MSK 2025","passed","Fri Jun 27 14:04:35 MSK 2025","TestCreateUser","test_create_user","",""
+"Класс тестирования регистрации пользователя","497","Регистрация без всех обязательных полей
+Ручка: POST /api/auth/register
+Ожидаем: 403","tests","Fri Jun 27 14:04:35 MSK 2025","passed","Fri Jun 27 14:04:35 MSK 2025","TestCreateUser","test_create_user","",""
+"Тестирование получения заказов пользователя","499","Попытка получить заказы без авторизации
+Ручка: GET /api/orders
+Ожидаем: 401 (неавторизован)","tests","Fri Jun 27 14:04:38 MSK 2025","passed","Fri Jun 27 14:04:39 MSK 2025","TestTakeUserOrder","test_take_user_order","",""
+"Класс создания заказа для неавторизованных пользователей","489","Создание заказа без авторизации
+С валидными ингредиентами
+Ручка: POST /api/orders
+Ожидаем: 200","tests","Fri Jun 27 14:04:24 MSK 2025","passed","Fri Jun 27 14:04:25 MSK 2025","TestUnauthorizedCreateOrder","test_create_order","",""
+"Класс создания заказа для авторизованных пользователей","1128","Создание заказа с авторизацией
+С невалидным хешем ингредиента
+Ручки: POST /api/auth/login → POST /api/orders
+Ожидаем: 500","tests","Fri Jun 27 14:04:30 MSK 2025","passed","Fri Jun 27 14:04:31 MSK 2025","TestLoginUserCreateOrder","test_create_order","",""
+"Класс вариантов входа в систему и возможные ошибки.","501","Не авторизованный пользователь. Не передали пароль, генерируем логин. Статус ответа 401.","tests","Fri Jun 27 14:04:37 MSK 2025","passed","Fri Jun 27 14:04:37 MSK 2025","TestLoginUser","test_login_user","",""
+"Класс создания заказа для авторизованных пользователей","1261","Создание заказа с авторизацией
+Без ингредиентов
+Ручки: POST /api/auth/login → POST /api/orders
+Ожидаем: 400","tests","Fri Jun 27 14:04:29 MSK 2025","passed","Fri Jun 27 14:04:30 MSK 2025","TestLoginUserCreateOrder","test_create_order","",""
+"Класс создания заказа для неавторизованных пользователей","504","Создание заказа без авторизации
+Без ингредиентов
+Ручка: POST /api/orders
+Ожидаем: 400","tests","Fri Jun 27 14:04:25 MSK 2025","passed","Fri Jun 27 14:04:25 MSK 2025","TestUnauthorizedCreateOrder","test_create_order","",""
+"Класс тестирования регистрации пользователя","490","Регистрация без password
+Ручка: POST /api/auth/register
+Ожидаем: 403","tests","Fri Jun 27 14:04:34 MSK 2025","passed","Fri Jun 27 14:04:34 MSK 2025","TestCreateUser","test_create_user","",""
+"Класс создания заказа для неавторизованных пользователей","514","Создание заказа без авторизации
+С невалидным хешем ингредиента
+Ручка: POST /api/orders
+Ожидаем: 500","tests","Fri Jun 27 14:04:25 MSK 2025","passed","Fri Jun 27 14:04:26 MSK 2025","TestUnauthorizedCreateOrder","test_create_order","",""
+"Тестирование получения заказов пользователя","945","Получение всех заказов (макс. 50)
+Ручка: GET /api/orders/all
+Ожидаем: 200, поля total и totalToday","tests","Fri Jun 27 14:04:38 MSK 2025","passed","Fri Jun 27 14:04:38 MSK 2025","TestTakeUserOrder","test_take_user_order","",""
+"Класс вариантов входа в систему и возможные ошибки.","601","Логинемся под существующим пользователем. Есть в ответе accessToken - значит авторизован. Статус ответа 200.","tests","Fri Jun 27 14:04:35 MSK 2025","passed","Fri Jun 27 14:04:36 MSK 2025","TestLoginUser","test_login_user","",""
+"Класс изменение данных пользователя","1958","Создаем, авторизуемся, изменяем пароль
+Ожидаем успех 200 и 202
+Ручки: POST /api/auth/register → PATCH /api/auth/user → DELETE /api/auth/user","tests","Fri Jun 27 14:04:20 MSK 2025","passed","Fri Jun 27 14:04:22 MSK 2025","TestChangeUserData","test_change_user_data","",""
