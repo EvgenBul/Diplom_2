@@ -53,7 +53,7 @@ class TestChangeUserData:
               'Ожидаем успех 200 и 202\n'
               'Ручки: POST /api/auth/register → PATCH /api/auth/user → DELETE /api/auth/user')
     def test_change_profile_password_true(self):
-        patch_password = {"email": password_generator()}
+        patch_password = {"password": password_generator()}
         new_user = requests.post(post_register_user, data=payload_new_user())
         auth_token = new_user.json()["accessToken"]
         change_profile_data = requests.patch(patch_change_user_data, headers={"authorization": f"{auth_token}"}, data=patch_password)
