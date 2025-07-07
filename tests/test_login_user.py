@@ -9,7 +9,9 @@ from helpers import mail_generator, password_generator
 @allure.description('Класс вариантов входа в систему и возможные ошибки.')
 class TestLoginUser:
 
-    @allure.title('Логинемся под существующим пользователем. Есть в ответе accessToken - значит авторизован. Статус ответа 200.')
+    @allure.title('Авторизуемся под существующим пользователем.\n'
+                  'Есть в ответе accessToken - значит авторизован.'
+                  '\nСтатус ответа 200.')
     def test_post_login_user_true(self):
         response = requests.post(post_login_user, data=exist_user_payload)
         assert "accessToken" in response.json() and response.status_code == 200
@@ -23,7 +25,8 @@ class TestLoginUser:
         response = requests.post(post_login_user, data=payload)
         assert response.json() == data.user_error_403_unauthorized and response.status_code == 401
 
-    @allure.title('Не авторизованный пользователь. Не передали логин, генерируем пароль. Статус ответа 401.')
+    @allure.title('Не авторизованный пользователь. Не передали логин, генерируем пароль. \n'
+                  'Статус ответа 401.')
     def test_unauthorized_user_no_login(self):
         payload = {
             "email": "",
@@ -32,7 +35,8 @@ class TestLoginUser:
         response = requests.post(post_login_user, data=payload)
         assert response.json() == data.user_error_403_unauthorized and response.status_code == 401
 
-    @allure.title('Не авторизованный пользователь. Не передали пароль, генерируем логин. Статус ответа 401.')
+    @allure.title('Не авторизованный пользователь. Не передали пароль, генерируем логин. \n'
+                  'Статус ответа 401.')
     def test_unauthorized_user_no_password(self):
         payload = {
             "email": mail_generator(),
